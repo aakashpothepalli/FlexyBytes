@@ -1,3 +1,4 @@
+import 'package:empyreal20/fireTest.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: Scaffold(appBar: AppBar(title: Text("Empyreal 2020"),),)
+      home: Scaffold(appBar: AppBar(title: Text("Empyreal 2020"),),body: FireTest(),)
     );
   }
 }

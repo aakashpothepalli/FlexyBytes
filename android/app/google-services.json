@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "268615196489",
+    "firebase_url": "https://empyreal20-ea4b8.firebaseio.com",
+    "project_id": "empyreal20-ea4b8",
+    "storage_bucket": "empyreal20-ea4b8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:268615196489:android:fee20b5564a1c4708ac498",
+        "android_client_info": {
+          "package_name": "com.example.empyreal20"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "268615196489-f39e9bqt1e74olrblu5hn641csamgmku.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0JeRjOO1nxl1mjX_AvMG9enJmZLUpxAY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "268615196489-f39e9bqt1e74olrblu5hn641csamgmku.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
