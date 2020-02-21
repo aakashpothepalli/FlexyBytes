@@ -5,8 +5,9 @@ class Dashboard extends StatefulWidget {
 }
 
 class DashboardState extends State<Dashboard> {
-  final List<String> entries = <String>['A', 'B', 'C', 'D', 'E', 'F'];
-  final List<int> colorCodes = <int>[600, 500, 100, 200, 300, 500];
+  final List<String> keys = <String>[];
+  final List<String> entries = <String>['Connect App to MongoDB',' API exception handling'];
+  final List<int> bytes = <int>[200,100];
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class DashboardState extends State<Dashboard> {
         padding: const EdgeInsets.all(16),
         itemCount: entries.length,
         itemBuilder: (BuildContext context, int index) {
-          return TaskCard(entries[index],"",1);
+          return TaskCard(entries[index],"",bytes[index]);
         },
         separatorBuilder: (BuildContext context, int index) => const Divider(),
       ),
