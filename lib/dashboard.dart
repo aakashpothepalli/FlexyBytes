@@ -16,7 +16,7 @@ class DashboardState extends State<Dashboard> {
         padding: const EdgeInsets.all(16),
         itemCount: entries.length,
         itemBuilder: (BuildContext context, int index) {
-          return TaskCard();
+          return TaskCard(entries[index],"",1);
         },
         separatorBuilder: (BuildContext context, int index) => const Divider(),
       ),

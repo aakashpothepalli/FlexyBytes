@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 
 class TaskCard extends StatefulWidget{
+ 
+  String task,deadline;
+  int bytes;
+  
 
+  TaskCard(this.task,this.deadline,this.bytes);
   TaskCardState createState() => TaskCardState();
 }
 
 class TaskCardState extends State<TaskCard> {
+
   @override
   Widget build(BuildContext context) {
    
@@ -20,13 +26,13 @@ class TaskCardState extends State<TaskCard> {
          mainAxisAlignment: MainAxisAlignment.spaceBetween,
          children: <Widget>[
            
-           Text('Heart Shaker',style: TextStyle(fontSize: 25),),
-            Expanded(
+           Text(widget.task,style: TextStyle(fontSize: 25),),
+            Container(
                           child: ClipOval(
                 child: Container(
                     height: 60.0, // height of the button
                     width: 60.0, // width of the button
-                    child: Center(child: Text('1')),
+                    child: Center(child: Text('0')),
                     decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: Colors.white,
@@ -46,7 +52,7 @@ class TaskCardState extends State<TaskCard> {
         ,Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            Text('Heart Shaker',style: TextStyle(fontSize: 12),),
+            Text('Dead line:',style: TextStyle(fontSize: 12),),
             IconButton(icon: Icon(Icons.check_circle_outline), onPressed: null)
             //RaisedButton(child: Text("Submit"),onPressed: null,)
             ],)
