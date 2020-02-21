@@ -39,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final _pageOptions = [
        Dashboard(), 
        MyRedeemPage(),
-       StartPage(),
+       ProfilePage(),
       
        
        
