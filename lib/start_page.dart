@@ -6,12 +6,19 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  int curBytes=0;
+  int curBytes=-1;
 
+  void getData()async {
+    var ref = FirebaseDatabase.instance.reference().child("users/1");
+    var bytes = await ref.once().then((ds) => ds.value['bytes']);
+   setState(() {
+     this.curBytes = bytes;
+   });
+  }
   @override
   void initState() {
     // TODO: implement initState
-    var ref = FirebaseDatabase.instance.reference().child("users/1");
+    getData();
     super.initState();
   }
   @override
@@ -77,8 +84,8 @@ class _ProfilePageState extends State<ProfilePage> {
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Text(
-                          '315',
+                         (this.curBytes==-1)?CircularProgressIndicator():Text(
+                          this.curBytes.toString(),
                           style: TextStyle(
                               fontFamily: 'Montserrat',
                               fontWeight: FontWeight.bold),
