@@ -8,7 +8,7 @@ SPState createState() => SPState();
 class SPState extends State<StartPage>{
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(body: Text("yffuyfu"),);
   }
   
 }

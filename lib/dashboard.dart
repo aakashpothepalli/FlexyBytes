@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'task_card.dart';
 class Dashboard extends StatefulWidget {
   DashboardState createState() => DashboardState();
 }
@@ -16,11 +16,7 @@ class DashboardState extends State<Dashboard> {
         padding: const EdgeInsets.all(16),
         itemCount: entries.length,
         itemBuilder: (BuildContext context, int index) {
-          return Container(
-            height: 50,
-            color: Colors.amber[colorCodes[index]],
-            child: Center(child: Text('Entry ${entries[index]}')),
-          );
+          return TaskCard();
         },
         separatorBuilder: (BuildContext context, int index) => const Divider(),
       ),
