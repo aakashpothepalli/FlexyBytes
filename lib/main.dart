@@ -68,9 +68,9 @@ class _MyHomePageState extends State<MyHomePage> {
           
           items: [
             BottomNavigationBarItem(
-                icon: Icon(Icons.play_circle_filled), title: new Text('Play')),
+                icon: Icon(Icons.check_box), title: new Text('Dashboard')),
             BottomNavigationBarItem(
-                icon: Icon(Icons.info), title: new Text('About'))
+                icon: Icon(Icons.account_box), title: new Text('Profile'))
           ],
           onTap: (index) {
            setState(() {
