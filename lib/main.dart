@@ -1,3 +1,4 @@
+import 'package:empyreal20/dashboard.dart';
 import 'package:empyreal20/fireTest.dart';
 import 'package:flutter/material.dart';
 
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
           appBar: AppBar(
             title: Text("Empyreal 2020"),
           ),
-          body: FireTest(),
+          body: Dashboard(),
         ));
   }
 }
