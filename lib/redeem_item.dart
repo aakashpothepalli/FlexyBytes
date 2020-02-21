@@ -68,16 +68,11 @@ void getdata()async{
                     // return object of type Dialog
                     return AlertDialog(
                       title: new Text("Confirm",style: TextStyle(color: Colors.black87)),
-                      content: new Text("Do you want to mark as completed and call for review?",style: TextStyle(color: Colors.black54)),
+                      content: new Text("Do you want to redeem your 50 bytes for this item?",style: TextStyle(color: Colors.black54)),
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
                       actions: <Widget>[
                         // usually buttons at the bottom of the dialog
-                        new FlatButton(
-                           child: new Text("No, edit post",style: TextStyle(color: Colors.redAccent),),
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                        ),
+                       
                         new FlatButton(
                           child: new Text("Yes"),
                           onPressed: () {
@@ -88,6 +83,12 @@ void getdata()async{
                               
                             });
                           Navigator.of(context).pop();
+                          },
+                        ),
+                         new FlatButton(
+                           child: new Text("No, I will reedem it for something else",style: TextStyle(color: Colors.redAccent),),
+                          onPressed: () {
+                            Navigator.of(context).pop();
                           },
                         ),
                       ],
