@@ -40,6 +40,7 @@ class _ProfilePageState extends State<ProfilePage> {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              SizedBox(height: 20,),
               Hero(
                 tag: 'assets/mkbhd.jpg',
                 child: Container(
@@ -64,13 +65,13 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
               SizedBox(height: 4.0),
               Text(
-                'New Jersey',
+              'Senior Product Manager',
                 style: TextStyle(fontFamily: 'Montserrat', color: Colors.grey),
               ),
               Padding(
                 padding: EdgeInsets.all(30.0),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: <Widget>[
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -83,7 +84,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         ),
                         SizedBox(height: 5.0),
                         Text(
-                          'CHECK-IN TIME',
+                          'Check-in Time',
                           style: TextStyle(
                               fontFamily: 'Montserrat',
                               color: Colors.grey),
