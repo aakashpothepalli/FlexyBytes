@@ -27,8 +27,7 @@ class TaskCardState extends State<TaskCard> {
          children: <Widget>[
            
            Text(widget.task,style: TextStyle(fontSize: 25),),
-            Container(
-                          child: ClipOval(
+             ClipOval(
                 child: Container(
                     height: 60.0, // height of the button
                     width: 60.0, // width of the button
@@ -42,7 +41,7 @@ class TaskCardState extends State<TaskCard> {
                           blurRadius: 2.0,
                           spreadRadius: 1.0)
                     ],
-                  ),
+                  
                   ),
                   
                 
