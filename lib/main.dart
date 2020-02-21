@@ -1,4 +1,6 @@
+import 'package:empyreal20/dashboard.dart';
 import 'package:empyreal20/fireTest.dart';
+import 'package:empyreal20/task_card.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: Scaffold(appBar: AppBar(title: Text("Empyreal 2020"),),body: FireTest(),)
+      home: Scaffold(appBar: AppBar(title: Text("Empyreal 2020"),),body: TaskCard(),)
     );
   }
 }
