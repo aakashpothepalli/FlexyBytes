@@ -1,4 +1,5 @@
 import 'package:empyreal20/dashboard.dart';
+import 'package:empyreal20/redeem_item.dart';
 import 'package:flutter/material.dart';
 import 'package:empyreal20/start_page.dart';
 //import 'package:empyreal20/task_card.dart';
@@ -36,8 +37,10 @@ class _MyHomePageState extends State<MyHomePage> {
   
   
   final _pageOptions = [
-       Dashboard(),
+       Dashboard(), 
+       MyRedeemPage(),
        StartPage(),
+      
        
        
     ];
@@ -69,6 +72,9 @@ class _MyHomePageState extends State<MyHomePage> {
           items: [
             BottomNavigationBarItem(
                 icon: Icon(Icons.check_box), title: new Text('Dashboard')),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.monetization_on),title: new Text('Redeem'),
+            ),
             BottomNavigationBarItem(
                 icon: Icon(Icons.account_box), title: new Text('Profile'))
           ],
