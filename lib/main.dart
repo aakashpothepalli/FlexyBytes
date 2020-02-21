@@ -1,7 +1,7 @@
 import 'package:empyreal20/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:empyreal20/start_page.dart';
-import 'package:empyreal20/task_card.dart';
+//import 'package:empyreal20/task_card.dart';
 
 void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
