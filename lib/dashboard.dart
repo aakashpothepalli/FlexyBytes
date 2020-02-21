@@ -25,7 +25,7 @@ class DashboardState extends State<Dashboard> {
         );
   }
 }
-
+/*
 class NavBar extends State<Dashboard> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
@@ -82,3 +82,4 @@ class NavBar extends State<Dashboard> {
     );
   }
 }
+*/
