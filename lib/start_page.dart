@@ -7,12 +7,21 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   int curBytes=-1;
-
+  int tasksPending=-1;
   void getData()async {
     var ref = FirebaseDatabase.instance.reference().child("users/1");
-    var bytes = await ref.once().then((ds) => ds.value['bytes']);
+    var data = await ref.once().then((ds) => ds.value);
+    int count=0;
+    for(var obj in data["tasks"]){
+        if(obj["submitted"]==true){
+          count++;
+        }
+    }
+
+    var bytes = data["bytes"];
    setState(() {
      this.curBytes = bytes;
+     this.tasksPending = data["tasks"].length-count;
    });
   }
   @override
@@ -102,15 +111,15 @@ class _ProfilePageState extends State<ProfilePage> {
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Text(
-                          '21',
+                        (this.tasksPending==-1)?CircularProgressIndicator():Text(
+                          this.tasksPending.toString(),
                           style: TextStyle(
                               fontFamily: 'Montserrat',
                               fontWeight: FontWeight.bold),
                         ),
                         SizedBox(height: 5.0),
                         Text(
-                          'BUCKET LIST',
+                          'Tasks pending',
                           style: TextStyle(
                               fontFamily: 'Montserrat',
                               color: Colors.grey),

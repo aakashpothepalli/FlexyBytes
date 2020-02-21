@@ -25,14 +25,34 @@ class _MyRedeemPageState extends State<MyRedeemPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: SizedBox(
+      body: SafeArea(
+        
+        
+        child:GridView.count(crossAxisCount: 1,
+          children:[
+            
+            Card(child:ListTile(title:Text("hello"),trailing:Image(image: AssetImage("assets/Companyhoodie.jpeg"))))
+
+
+          ],
+          
+          
+          
+          ),
+          
+          
+          
+          
+          
+          /*
+          SizedBox(
           height: 30,
           child: RaisedButton(
             onPressed: () {},
             child: const Text('Enabled Button', style: TextStyle(fontSize: 20)),
           ),
-        ),
+        ),*/
+        
       ),
     );
   }

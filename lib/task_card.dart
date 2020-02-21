@@ -5,15 +5,27 @@ class TaskCard extends StatefulWidget{
   String task,deadline,id;
   int bytes;
   bool isTaskComplete ;
-
   TaskCard(this.id,this.task,this.deadline,this.bytes,this.isTaskComplete);
   TaskCardState createState() => TaskCardState();
 }
 
 class TaskCardState extends State<TaskCard> {
+  int totalBytes;
 
-
+  void getData()async {
+    var ref = FirebaseDatabase.instance.reference().child("users/1");
+    var bytes = await ref.once().then((ds) => ds.value['bytes']);
+   setState(() {
+     this.totalBytes = bytes;
+   });
+  }
+  @override
+    void initState() { 
+      super.initState();
+      getData();
+    }
   void checkTaskCompleted(){  
+    
     showDialog(
                   context: context,
                   builder: (BuildContext context) {
@@ -34,7 +46,9 @@ class TaskCardState extends State<TaskCard> {
                           child: new Text("Yes"),
                           onPressed: () {
                             setState(() {
+                              
                               FirebaseDatabase.instance.reference().child("users/1/tasks/"+widget.id+"/submitted").set(true);
+                              FirebaseDatabase.instance.reference().child("users/1/bytes").set(widget.bytes+this.totalBytes);
                               widget.isTaskComplete=true;
                             });
                           Navigator.of(context).pop();
@@ -87,7 +101,7 @@ class TaskCardState extends State<TaskCard> {
         ,Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            Text('Dead line:',style: TextStyle(fontSize: 12),),
+            Text('Dead line: 1st March 2020',style: TextStyle(fontSize: 12),),
             Container(child:(widget.isTaskComplete)? 
             Text("Submitted for review"):
             IconButton(icon: Icon(Icons.check_box_outline_blank,size:30), onPressed: checkTaskCompleted))

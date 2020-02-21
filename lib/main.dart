@@ -58,11 +58,11 @@ class _MyHomePageState extends State<MyHomePage> {
           // or simply save your changes to "hot reload" in a Flutter IDE).
           // Notice that the counter didn't reset back to zero; the application
           // is not restarted.
-          primarySwatch: Colors.pink,
+          primarySwatch: Colors.teal,
         ),
         home: Scaffold(
           appBar: AppBar(
-            title: Text("Empyreal 2020"),
+            title: Text("Company Name"),
           ),
           body: _pageOptions[_cIndex],
           bottomNavigationBar: BottomNavigationBar(
