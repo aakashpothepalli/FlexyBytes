@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
-
+import 'package:firebase_database/firebase_database.dart';
 class TaskCard extends StatefulWidget{
  
   String task,deadline,id;
   int bytes;
-  
+  bool isTaskComplete ;
 
-  TaskCard(this.id,this.task,this.deadline,this.bytes);
+  TaskCard(this.id,this.task,this.deadline,this.bytes,this.isTaskComplete);
   TaskCardState createState() => TaskCardState();
 }
 
 class TaskCardState extends State<TaskCard> {
 
-    bool isTaskCompleted = false;
 
   void checkTaskCompleted(){  
     showDialog(
@@ -33,9 +32,11 @@ class TaskCardState extends State<TaskCard> {
                         ),
                         new FlatButton(
                           child: new Text("Yes"),
-                          onPressed: () {                          setState(() {
-      this.isTaskCompleted=true;
-    });
+                          onPressed: () {
+                            setState(() {
+                              FirebaseDatabase.instance.reference().child("users/1/tasks/"+widget.id+"/submitted").set(true);
+                              widget.isTaskComplete=true;
+                            });
                           Navigator.of(context).pop();
                           },
                         ),
@@ -87,7 +88,7 @@ class TaskCardState extends State<TaskCard> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Text('Dead line:',style: TextStyle(fontSize: 12),),
-            Container(child:(this.isTaskCompleted)? 
+            Container(child:(widget.isTaskComplete)? 
             Text("Submitted for review"):
             IconButton(icon: Icon(Icons.check_box_outline_blank,size:30), onPressed: checkTaskCompleted))
             //RaisedButton(child: Text("Submit"),onPressed: null,)
