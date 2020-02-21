@@ -2,6 +2,7 @@ import 'package:empyreal20/dashboard.dart';
 import 'package:empyreal20/redeem_item.dart';
 import 'package:flutter/material.dart';
 import 'package:empyreal20/start_page.dart';
+import 'package:firebase_database/firebase_database.dart';
 //import 'package:empyreal20/task_card.dart';
 
 void main() => runApp(MyApp());

@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:firebase/firebase.dart';
 
 class TaskCard extends StatefulWidget{
  
-  String task,deadline;
+  String task,deadline,id;
   int bytes;
   
 
-  TaskCard(this.task,this.deadline,this.bytes);
+  TaskCard(this.id,this.task,this.deadline,this.bytes);
   TaskCardState createState() => TaskCardState();
 }
 

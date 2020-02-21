@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
-
+import 'package:firebase_database/firebase_database.dart';
 class ProfilePage extends StatefulWidget {
   @override
   _ProfilePageState createState() => _ProfilePageState();
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  int curBytes=0;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    var ref = FirebaseDatabase.instance.reference().child("users/1");
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
