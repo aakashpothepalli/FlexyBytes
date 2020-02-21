@@ -15,10 +15,36 @@ class TaskCardState extends State<TaskCard> {
     bool isTaskCompleted = false;
 
   void checkTaskCompleted(){  
-
-    setState(() {
+    showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    // return object of type Dialog
+                    return AlertDialog(
+                      title: new Text("Confirm",style: TextStyle(color: Colors.black87)),
+                      content: new Text("Do you want to mark as completed and call for review?",style: TextStyle(color: Colors.black54)),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
+                      actions: <Widget>[
+                        // usually buttons at the bottom of the dialog
+                        new FlatButton(
+                           child: new Text("No, edit post",style: TextStyle(color: Colors.redAccent),),
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                        ),
+                        new FlatButton(
+                          child: new Text("Yes"),
+                          onPressed: () {                          setState(() {
       this.isTaskCompleted=true;
     });
+                          Navigator.of(context).pop();
+                          },
+                        ),
+                      ],
+                    );
+                  },
+                );
+
+   
   }
   @override
   Widget build(BuildContext context) {
@@ -34,7 +60,7 @@ class TaskCardState extends State<TaskCard> {
          mainAxisAlignment: MainAxisAlignment.spaceBetween,
          children: <Widget>[
            
-           Wrap(children:<Widget>[ Text(widget.task,style: TextStyle(fontSize: 25),) ]),
+           Wrap(children:<Widget>[ Text(widget.task,style: TextStyle(fontSize: 25),softWrap: true,) ]),
            
              ClipOval(
                 child: Container(
@@ -61,7 +87,9 @@ class TaskCardState extends State<TaskCard> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Text('Dead line:',style: TextStyle(fontSize: 12),),
-            IconButton(icon: Icon(Icons.check_circle_outline,size:30,color:(this.isTaskCompleted)? Colors.green:Colors.grey,), onPressed: checkTaskCompleted)
+            Container(child:(this.isTaskCompleted)? 
+            Text("Submitted for review"):
+            IconButton(icon: Icon(Icons.check_box_outline_blank,size:30), onPressed: checkTaskCompleted))
             //RaisedButton(child: Text("Submit"),onPressed: null,)
             ],)
 
