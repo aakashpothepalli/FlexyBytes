@@ -66,7 +66,7 @@ class TaskCardState extends State<TaskCard> {
                 child: Container(
                     height: 60.0, // height of the button
                     width: 60.0, // width of the button
-                    child: Center(child: Text('0')),
+                    child: Center(child: Text(widget.bytes.toString())),
                     decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: Colors.white,

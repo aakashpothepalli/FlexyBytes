@@ -6,19 +6,46 @@ class Dashboard extends StatefulWidget {
 }
 
 class DashboardState extends State<Dashboard> {
-  final List<String> keys = <String>["1","2"];
-  final List<String> entries = <String>['Connect App to MongoDB',' API exception handling'];
-  final List<int> bytes = <int>[200,100];
+   List<String> keys = <String>["1"];
+   List<String> tasks = <String>['Loading'];
+   List<int> bytes = <int>[200];
 
+  void getData()async {
+    var ref = FirebaseDatabase.instance.reference().child("users/1");
+    var data = await ref.once().then((ds) => ds.value['tasks']);
+    var _tasks= <String>[],_bytes=<int>[],_keys=<String>[];
+    int i=0;
+    for(var obj in data){
+      _keys.add(i.toString());
+      _tasks.add(obj["task"]);
+      _bytes.add(obj["bytes"]);
+      i++;
+    }
+    print(_bytes);
+    setState(() {
+      this.keys = _keys;
+      this.tasks =_tasks;
+      this.bytes = _bytes;
+    });
+    
+    print(data);
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    getData();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: SafeArea(
       child: ListView.separated(
         padding: const EdgeInsets.all(16),
-        itemCount: entries.length,
+        itemCount: tasks.length,
         itemBuilder: (BuildContext context, int index) {
-          return TaskCard(keys[index],entries[index],"",bytes[index]);
+          return TaskCard(keys[index],tasks[index],"",bytes[index]);
         },
         separatorBuilder: (BuildContext context, int index) => const Divider(),
       ),
